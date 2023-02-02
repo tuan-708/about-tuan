@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,user-scalable=no" />
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" href="static/image/logo.jpg">
+    <title>Thông tin về Tuấn</title>
+</head>
+
+<body>
+    <div id="drag-container">
+        <div id="spin-container">
+            <!-- Add your images (or video) here -->
+            <img src="static/image/IMGS_027.jpeg" alt="" />
+            <img src="static/image/IMGS_025.jpg" alt="" />
+            <img src="static/image/IMGS_210.PNG" alt="" />
+            <img src="static/image/IMGS_240.jpg" alt="" />
+            <img src="static/image/IMGS_292.JPG" alt="" />
+            <img src="static/image/IMGS_309.JPG" alt="" />
+
+
+            <!-- Example add video  -->
+            <video controls autoplay="autoplay" loop>
+                <source
+                    src="https://player.vimeo.com/external/322244668.sd.mp4?s=338c48ac2dfcb1d4c0689968b5baf94eee6ca0c1&profile_id=165&oauth2_token_id=57447761"
+                    type="video/mp4" />
+            </video>
+
+            <!-- Text at center of ground -->
+            <div id="container">
+                <span id="text1"></span>
+                <span id="text2"></span>
+            </div>
+
+            <svg id="filters">
+                <defs>
+                    <filter id="threshold">
+                        <feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0
+                                  0 1 0 0 0
+                                  0 0 1 0 0
+                                  0 0 0 255 -140" />
+                    </filter>
+                </defs>
+            </svg>
+
+
+
+
+        </div>
+        <div id="ground"></div>
+    </div>
+
+    <div class="clock">
+        <div class="numbers">
+            <span style="--i:0;"><b>12</b></span>
+            <span style="--i:1;"><b>3</b></span>
+            <span style="--i:2;"><b>6</b></span>
+            <span style="--i:3;"><b>9</b></span>
+            <div class="circle" id="hr"><i></i></div>
+            <div class="circle" id="mn"><i></i></div>
+            <div class="circle" id="sc"><i></i></div>
+        </div>
+    </div>
+
+
+
+    <!-- <div class="menu">
+        <ul>
+            <li style="--i:6;--clr:rgb(22, 92, 241)"><a href=""><span><i
+                            class="fa-brands fa-facebook-f"></i></span>Facebook</a></li>
+            <li style="--i:5;--clr:rgb(241, 22, 88)"><a href=""><span><i
+                            class="fa-brands fa-instagram"></i></span>Instagram</a></li>
+            <li style="--i:4;--clr:rgb(59, 47, 47)"><a href=""><span><i
+                            class="fa-brands fa-tiktok"></i></span>Tiktok</a></li>
+            <li style="--i:3;--clr:rgb(35, 255, 255)"><a href=""><span><i class="fa-solid fa-phone"></i></span>Phone</a>
+            </li>
+            <li style="--i:2;--clr:rgb(215, 255, 35)"><a href=""><span><i
+                            class="fa-solid fa-envelope"></i></span>Gmail</a></li>
+            <li style="--i:1;--clr:rgb(255, 7, 7)"><a href=""><span><i
+                            class="fa-brands fa-linkedin-in"></i></span>Linkedin</a></li>
+            <ul>
+    </div> -->
+
+    <div class="menu1">
+        <ul>
+            <li style="--i:6;--clr:rgb(26,104,235,0.9);--textCl:white;">
+                <a href="https://www.facebook.com/tuanlbs78">
+                    <img class="logo" src="static/image/logoface.png">
+                    <div id="speechbubble" class="overlay">
+                        <div class="text">
+                            Facebook: tuanlbs78
+                            <!-- <img src="static/image/IMG_1212.PNG"> -->
+                        </div>
+                    </div>
+                </a>
+            </li>
+            <li style="--i:6;--clr:rgba(255, 29, 123, 0.9);--textCl:white;">
+                <a href="https://www.instagram.com/tuan.708/">
+                    <img class="logo" src="static/image/logoinstagram.png">
+                    <div class="overlay">
+                        <div class="text">Instagram: tuan.708</div>
+                    </div>
+                </a>
+            </li>
+            <li style="--i:6;--clr:rgb(59, 47, 47);--textCl:white;">
+                <a href="https://www.tiktok.com/@tuan.708">
+                    <img class="logo" src="static/image/logotiktok.png">
+                    <div class="overlay">
+
+                        <div class="text">Tiktok: tuan.708</div>
+                    </div>
+                </a>
+            </li>
+            <li style="--i:6;--clr:rgb(96,206,77);--textCl:white;">
+                <a href="tel:+84828782000">
+                    <img class="logo" src="static/image/logophone.png">
+                    <div class="overlay">
+                        <div class="text">Phone: 0828782000</div>
+                    </div>
+                </a>
+            </li>
+            <li style="--i:6;--clr:rgb(86,141,215);--textCl:white;">
+                <a href="https://www.linkedin.com/in/tuan-vuvan-b06541255/">
+                    <img class="logo" src="static/image/logolinkedin.png">
+                    <div class="overlay">
+                        <div class="text">Linkedin: tuan-vuvan-b06541255</div>
+                    </div>
+                </a>
+            </li>
+            <li style="--i:6;--clr:rgb(157,216,231);--textCl: black;">
+                <a href="mailto: tuanlbs78@gmail.com">
+                    <img class="logo" src="static/image/logogmail.png">
+                    <div class="overlay">
+                        <div class="text">Gmail: tuanlbs78@gmail.com</div>
+                    </div>
+                </a>
+            </li>
+        <ul>
+    </div>
+
+    <div id="music-container">
+    </div>
+
+
+    <!-- <div class="container">
+        <div class="card">
+            <div class="lines"></div>
+            <div class="imgBx">
+                <img src="static/image/IMG_01.jpg">
+            </div>
+            <div class="content"></div>
+        </div>
+    </div> -->
+
+
+    <script>
+
+
+        let hr = document.querySelector("#hr");
+        let mn = document.querySelector("#mn");
+        let sc = document.querySelector("#sc");
+
+        let day = new Date();
+        let hh = day.getHours() * 30;
+        let mm = day.getMinutes() * 6;
+        let ss = day.getSeconds() * 6;
+
+        setInterval(function () {
+            let day = new Date();
+            let hh = day.getHours() * 30;
+            let mm = day.getMinutes() * 6;
+            let ss = day.getSeconds() * 6;
+
+            hr.style.transform = `rotateZ(${hh + (mm / 12)}deg)`;
+
+            mn.style.transform = `rotateZ(${mm}deg)`;
+
+            console.log(ss);
+
+            sc.style.transform = `rotateZ(${ss}deg)`;
+        }, 1000)
+
+
+
+        // You can change global variables here:
+        var radius = 220; // how big of the radius
+        var autoRotate = true; // auto rotate or not
+        var rotateSpeed = -60; // unit: seconds/360 degrees
+        var imgWidth = 130; // width of images (unit: px)
+        var imgHeight = 180; // height of images (unit: px)
+
+        // Link of background music - set 'null' if you dont want to play background music
+        var bgMusicURL =
+            "static/voice/my_stupid_heart.mp3";
+        var bgMusicControls = true; // Show UI music control
+
+        /*
+       NOTE:
+         + imgWidth, imgHeight will work for video
+         + if imgWidth, imgHeight too small, play/pause button in <video> will be hidden
+         + Music link are taken from: https://hoangtran0410.github.io/Visualyze-design-your-own-/?theme=HauMaster&playlist=1&song=1&background=28
+         + Custom from code in tiktok video  https://www.facebook.com/J2TEAM.ManhTuan/videos/1353367338135935/
+  */
+
+        // ===================== start =======================
+        setTimeout(init, 100);
+
+        var odrag = document.getElementById("drag-container");
+        var ospin = document.getElementById("spin-container");
+        var aImg = ospin.getElementsByTagName("img");
+        var aVid = ospin.getElementsByTagName("video");
+        var aEle = [...aImg, ...aVid]; // combine 2 arrays
+
+        // Size of images
+        ospin.style.width = imgWidth + "px";
+        ospin.style.height = imgHeight + "px";
+
+        // Size of ground - depend on radius
+        var ground = document.getElementById("ground");
+        ground.style.width = radius * 3 + "px";
+        ground.style.height = radius * 3 + "px";
+
+        function init(delayTime) {
+            for (var i = 0; i < aEle.length; i++) {
+                aEle[i].style.transform =
+                    "rotateY(" +
+                    i * (360 / aEle.length) +
+                    "deg) translateZ(" +
+                    radius +
+                    "px)";
+                aEle[i].style.transition = "transform 1s";
+                aEle[i].style.transitionDelay =
+                    delayTime || (aEle.length - i) / 4 + "s";
+            }
+        }
+
+        function applyTranform(obj) {
+            // Constrain the angle of camera (between 0 and 180)
+            if (tY > 180) tY = 180;
+            if (tY < 0) tY = 0;
+
+            // Apply the angle
+            obj.style.transform = "rotateX(" + -tY + "deg) rotateY(" + tX + "deg)";
+        }
+
+        function playSpin(yes) {
+            ospin.style.animationPlayState = yes ? "running" : "paused";
+        }
+
+        var sX,
+            sY,
+            nX,
+            nY,
+            desX = 0,
+            desY = 0,
+            tX = 0,
+            tY = 10;
+
+        // auto spin
+        if (autoRotate) {
+            var animationName = rotateSpeed > 0 ? "spin" : "spinRevert";
+            ospin.style.animation = `${animationName} ${Math.abs(
+                rotateSpeed
+            )}s infinite linear`;
+        }
+
+        // add background music
+        if (bgMusicURL) {
+            document.getElementById("music-container").innerHTML += `
+<audio src="${bgMusicURL}" ${bgMusicControls ? "controls" : ""
+                } autoplay loop>    
+<p>If you are reading this, it is because your browser does not support the audio element.</p>
+</audio>
+`;
+        }
+
+
+        // setup events
+        document.onpointerdown = function (e) {
+            clearInterval(odrag.timer);
+            e = e || window.event;
+            var sX = e.clientX,
+                sY = e.clientY;
+
+            this.onpointermove = function (e) {
+                e = e || window.event;
+                var nX = e.clientX,
+                    nY = e.clientY;
+                desX = nX - sX;
+                desY = nY - sY;
+                tX += desX * 0.1;
+                tY += desY * 0.1;
+                applyTranform(odrag);
+                sX = nX;
+                sY = nY;
+            };
+
+            this.onpointerup = function (e) {
+                odrag.timer = setInterval(function () {
+                    desX *= 0.95;
+                    desY *= 0.95;
+                    tX += desX * 0.1;
+                    tY += desY * 0.1;
+                    applyTranform(odrag);
+                    playSpin(false);
+                    if (Math.abs(desX) < 0.5 && Math.abs(desY) < 0.5) {
+                        clearInterval(odrag.timer);
+                        playSpin(true);
+                    }
+                }, 17);
+                this.onpointermove = this.onpointerup = null;
+            };
+
+            return false;
+        };
+
+        document.onmousewheel = function (e) {
+            e = e || window.event;
+            var d = e.wheelDelta / 20 || -e.detail;
+            radius += d;
+            init(1);
+        };
+
+
+
+        // js text in picture
+        const elts = {
+            text1: document.getElementById("text1"),
+            text2: document.getElementById("text2")
+        };
+
+        const texts = [
+            "Hãy",
+            "Follow",
+            "Mình",
+            "Nhé!",
+            "Vu Tuan :)",
+        ];
+
+        const morphTime = 1;
+        const cooldownTime = 0.25;
+
+        let textIndex = texts.length - 1;
+        let time = new Date();
+        let morph = 0;
+        let cooldown = cooldownTime;
+
+        elts.text1.textContent = texts[textIndex % texts.length];
+        elts.text2.textContent = texts[(textIndex + 1) % texts.length];
+
+        function doMorph() {
+            morph -= cooldown;
+            cooldown = 0;
+
+            let fraction = morph / morphTime;
+
+            if (fraction > 1) {
+                cooldown = cooldownTime;
+                fraction = 1;
+            }
+
+            setMorph(fraction);
+        }
+
+        function setMorph(fraction) {
+            elts.text2.style.filter = `blur(${Math.min(8 / fraction - 8, 100)}px)`;
+            elts.text2.style.opacity = `${Math.pow(fraction, 0.4) * 100}%`;
+
+            fraction = 1 - fraction;
+            elts.text1.style.filter = `blur(${Math.min(8 / fraction - 8, 100)}px)`;
+            elts.text1.style.opacity = `${Math.pow(fraction, 0.4) * 100}%`;
+
+            elts.text1.textContent = texts[textIndex % texts.length];
+            elts.text2.textContent = texts[(textIndex + 1) % texts.length];
+        }
+
+        function doCooldown() {
+            morph = 0;
+
+            elts.text2.style.filter = "";
+            elts.text2.style.opacity = "100%";
+
+            elts.text1.style.filter = "";
+            elts.text1.style.opacity = "0%";
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+
+            let newTime = new Date();
+            let shouldIncrementIndex = cooldown > 0;
+            let dt = (newTime - time) / 1000;
+            time = newTime;
+
+            cooldown -= dt;
+
+            if (cooldown <= 0) {
+                if (shouldIncrementIndex) {
+                    textIndex++;
+                }
+
+                doMorph();
+            } else {
+                doCooldown();
+            }
+        }
+
+        animate();
+    </script>
+</body>
+
+</html>
