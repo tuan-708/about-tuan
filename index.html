@@ -9,11 +9,20 @@
         integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="icon" href="static/image/logo.jpg">
-    <title>Thông tin về Tuấn</title>
+    <script src="main.js"></script>
+    <title>About Tuấn</title>
 </head>
 
-<body>
+<body onload="loadPage()">
+    <div id="preloader">
+        <div class="ring"></div>
+        <div class="ring"></div>
+        <div class="ring"></div>
+    </div>
+
+
     <div id="drag-container">
+
         <div id="spin-container">
             <!-- Add your images (or video) here -->
             <img src="static/image/IMGS_027.jpeg" alt="" />
@@ -47,15 +56,11 @@
                     </filter>
                 </defs>
             </svg>
-
-
-
-
         </div>
         <div id="ground"></div>
     </div>
 
-    <div class="clock">
+    <div id="clock" class="clock">
         <div class="numbers">
             <span style="--i:0;"><b>12</b></span>
             <span style="--i:1;"><b>3</b></span>
@@ -86,7 +91,7 @@
             <ul>
     </div> -->
 
-    <div class="menu1">
+    <div id="menu" class="menu1">
         <ul>
             <li style="--i:6;--clr:rgb(26,104,235,0.9);--textCl:white;">
                 <a href="https://www.facebook.com/tuanlbs78">
@@ -140,25 +145,31 @@
                     </div>
                 </a>
             </li>
-        <ul>
+            <ul>
     </div>
 
     <div id="music-container">
     </div>
 
 
-    <!-- <div class="container">
-        <div class="card">
-            <div class="lines"></div>
-            <div class="imgBx">
-                <img src="static/image/IMG_01.jpg">
-            </div>
-            <div class="content"></div>
-        </div>
-    </div> -->
-
-
     <script>
+
+        var preloader = document.getElementById("preloader");
+        var drag_container = document.getElementById("drag-container");
+        var clock = document.getElementById("clock");
+        var menu = document.getElementById("menu");
+
+        drag_container.style.display = 'none';
+        clock.style.display = 'none';
+        menu.style.display = 'none';
+
+        function loadPage() {
+            drag_container.style.display = 'block';
+            clock.style.display = 'block';
+            menu.style.display = 'block';
+            setTimeout(() => { preloader.classList.add("preloader-finish"); }, 500);
+            
+        }
 
 
         let hr = document.querySelector("#hr");
@@ -179,8 +190,6 @@
             hr.style.transform = `rotateZ(${hh + (mm / 12)}deg)`;
 
             mn.style.transform = `rotateZ(${mm}deg)`;
-
-            console.log(ss);
 
             sc.style.transform = `rotateZ(${ss}deg)`;
         }, 1000)
