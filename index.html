@@ -19,13 +19,14 @@
 </head>
 
 <body onload="loadPage()">
+    <!-- Preloader -->
     <div id="preloader">
         <div class="ring"></div>
         <div class="ring"></div>
         <div class="ring"></div>
     </div>
 
-
+    <!-- background page -->
     <div id="drag-container" onclick="enableAutoplay()">
 
         <div id="spin-container">
@@ -65,6 +66,7 @@
         <div id="ground"></div>
     </div>
 
+    <!-- clock  -->
     <div id="clock" class="clock">
         <div class="numbers">
             <span style="--i:0;"><b>12</b></span>
@@ -81,12 +83,6 @@
     <video id="audio" controls autoplay hidden>
         <source src="static/voice/audio.mp4" type="video/mp4" />
     </video>
-
-    <!-- <video width="320" height="240" controls autoplay hidden>
-        <source src="audio.mp4" type="video/mp4">
-        <source src="audio.ogg" type="audio/ogg">
-        Your browser does not support the video tag.
-    </video> -->
 
 
     <!-- <div class="menu">
@@ -106,6 +102,7 @@
             <ul>
     </div> -->
 
+    <!-- menu -->
     <div id="menu" class="menu1">
         <ul>
             <li style="--i:6;--clr:rgb(26,104,235,0.9);--textCl:white;">
@@ -164,21 +161,62 @@
     </div>
 
 
+    <div id="boxIntro" class="container">
+        <div class="card">
+            <div class="lines">
+            </div>
+            <div class="imgBox">
+                <img src="static/image/IMGS11.jpg" alt="">
+            </div>
+            <div class="content">
+
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="lines">
+            </div>
+            <div class="imgBox">
+                <img src="static/image/IMGS112.jpg" alt="">
+            </div>
+            <div class="content">
+
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="lines">
+            </div>
+            <div class="imgBox">
+                <img src="static/image/IMGS1561.jpg" alt="">
+            </div>
+            <div class="content">
+
+            </div>
+        </div>
+
+    </div>
+
+
     <script>
         // Wait to load all element
         var preloader = document.getElementById("preloader");
         var drag_container = document.getElementById("drag-container");
         var clock = document.getElementById("clock");
         var menu = document.getElementById("menu");
+        var boxIntro = document.getElementById("boxIntro");
+        
 
         drag_container.style.display = 'none';
         clock.style.display = 'none';
         menu.style.display = 'none';
+        boxIntro.style.display = 'none';
 
         function loadPage() {
             drag_container.style.display = 'block';
             clock.style.display = 'block';
             menu.style.display = 'block';
+            boxIntro.style.display = 'flex';
             setTimeout(() => { preloader.classList.add("preloader-finish"); }, 500);
 
         }
@@ -216,7 +254,7 @@
 
 
 
-        // You can change global variables here:
+        // spin image
         var radius = 220; // how big of the radius
         var autoRotate = true; // auto rotate or not
         var rotateSpeed = -60; // unit: seconds/360 degrees

@@ -259,8 +259,10 @@ body {
 /* Clock */
 .clock {
   position: absolute;
-  top: 5%;
-  left: 85%;
+  /* top: 5%;
+  left: 85%; */
+  top: 1%;
+  left: 45%;
   width: 150px;
   height: 150px;
   background: #c9d5e0;
@@ -284,7 +286,7 @@ body {
   height: 4px;
   background: #e91e63;
   border-radius: 50%;
-  z-index: 1000;
+  z-index: 1;
   box-shadow: 0 0 0 1px #e91e63,
     0 0 0 3px #fff,
     0 0 5px 5px rgba(0, 0, 0, 0.15);
@@ -349,7 +351,7 @@ body {
   border-radius: 50%;
   display: flex;
   justify-content: center;
-  z-index: 10;
+  z-index: 1;
 }
 
 .clock .numbers .circle i {
@@ -488,8 +490,8 @@ body {
 /* menu icon */
 .menu1 {
   position: absolute;
-  top: 30%;
-  left: 3%;
+  top: 26%;
+  left: 4%;
 }
 
 .menu1 ul li .logo {
@@ -556,7 +558,6 @@ body {
   overflow: hidden;
   text-align: center;
   line-height: 40px;
-  ;
   -webkit-transition: 0.6s;
   -moz-transition: 0.6s;
   -o-transition: 0.6s;
@@ -594,6 +595,139 @@ body {
 
 
 .menu1 ul li {
-  margin-top: 10px;
+  margin-bottom: 28px;
   position: relative;
+}
+
+/* introduction */
+.container {
+  position: absolute;
+  top: 28%;
+  left: 83%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 50px;
+  width: 220px;
+  z-index: 2;
+}
+
+.container .card {
+  position: relative;
+  width: 100%;
+  height: 120px;
+  background-color: #2196f3;
+  transition: 0.5s;
+}
+
+.container .card:hover {
+  height: 280px;
+}
+
+.card .lines {
+  position: absolute;
+  inset: 0;
+  background-color: #000;
+  overflow: hidden;
+}
+
+.card .lines::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 600px;
+  height: 120px;
+  background-image: linear-gradient(transparent, #45f3ff, #45f3ff, #45f3ff, transparent);
+  animation: animateCard 4s linear infinite;
+  animation-play-state: paused;
+}
+
+.card:hover .lines::before {
+  animation-play-state: running;
+}
+
+@keyframes animateCard {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+.card .lines::after {
+  content: '';
+  position: absolute;
+  inset: 3px;
+  background-color: #292929;
+
+}
+
+.card .imgBox {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  width: 80px;
+  height: 80px;
+  transform: translateX(-50%);
+  transition: 0.5s;
+  z-index: 10;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card:hover .imgBox {
+  top: 20px;
+  width: 100px;
+  height: 100px;
+}
+
+.card .imgBox::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 150px;
+  height: 100px;
+  transform: translate(-50%, -50%);
+  background-image: linear-gradient(transparent, #ff3c7d, #ff3c7d, #ff3c7d, transparent);
+  animation: animateImage 6s linear infinite;
+  animation-play-state: paused;
+}
+
+.card:hover .imgBox::before {
+  animation-play-state: running;
+}
+
+@keyframes animateImage {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+.card .imgBox::after {
+  content: '';
+  position: absolute;
+  inset: 3px;
+  background-color: #dbd3d3;
+}
+
+.card .imgBox img {
+  position: absolute;
+  z-index: 2;
+  filter: invert(1);
+  transition: 0.5s;
+}
+
+.container img {
+  width: 95%;
 }
