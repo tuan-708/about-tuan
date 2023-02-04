@@ -4,12 +4,17 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="style.css">
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
         integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="icon" href="static/image/logo.jpg">
-    <script src="main.js"></script>
+    <!-- <script src="particle.js"></script>
+    <script src="firework.js"></script>
+    <script src="sketch.js"></script> -->
+    <!-- <script src="main.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/p5.min.js" integrity="sha512-WJXVjqeINVpi5XXJ2jn0BSCfp0y80IKrYh731gLRnkAS9TKc5KNt/OfLtu+fCueqdWniouJ1ubM+VI/hbo7POQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>About Tuấn</title>
 </head>
 
@@ -21,16 +26,16 @@
     </div>
 
 
-    <div id="drag-container">
+    <div id="drag-container" onclick="enableAutoplay()">
 
         <div id="spin-container">
             <!-- Add your images (or video) here -->
-            <img src="static/image/IMGS_027.jpeg" alt="" />
-            <img src="static/image/IMGS_025.jpg" alt="" />
-            <img src="static/image/IMGS_210.PNG" alt="" />
-            <img src="static/image/IMGS_240.jpg" alt="" />
-            <img src="static/image/IMGS_292.JPG" alt="" />
-            <img src="static/image/IMGS_309.JPG" alt="" />
+            <img src="static/image/IMGS_027.jpeg" alt="" onclick="enableAutoplay()" />
+            <img src="static/image/IMGS_025.jpg" alt="" onclick="enableAutoplay()" />
+            <img src="static/image/IMGS_210.PNG" alt="" onclick="enableAutoplay()" />
+            <img src="static/image/IMGS_240.jpg" alt="" onclick="enableAutoplay()" />
+            <img src="static/image/IMGS_292.JPG" alt="" onclick="enableAutoplay()" />
+            <img src="static/image/IMGS_309.JPG" alt="" onclick="enableAutoplay()" />
 
 
             <!-- Example add video  -->
@@ -72,6 +77,16 @@
         </div>
     </div>
 
+
+    <video id="audio" controls autoplay hidden>
+        <source src="static/voice/audio.mp4" type="video/mp4" />
+    </video>
+
+    <!-- <video width="320" height="240" controls autoplay hidden>
+        <source src="audio.mp4" type="video/mp4">
+        <source src="audio.ogg" type="audio/ogg">
+        Your browser does not support the video tag.
+    </video> -->
 
 
     <!-- <div class="menu">
@@ -148,12 +163,9 @@
             <ul>
     </div>
 
-    <div id="music-container">
-    </div>
-
 
     <script>
-
+        // Wait to load all element
         var preloader = document.getElementById("preloader");
         var drag_container = document.getElementById("drag-container");
         var clock = document.getElementById("clock");
@@ -168,10 +180,18 @@
             clock.style.display = 'block';
             menu.style.display = 'block';
             setTimeout(() => { preloader.classList.add("preloader-finish"); }, 500);
-            
+
         }
 
+        var vid = document.getElementById("audio");
+        function enableAutoplay() {
+            if (vid.paused) {
+                vid.autoplay = true;
+                vid.load();
+            }
+        }
 
+        // event clock
         let hr = document.querySelector("#hr");
         let mn = document.querySelector("#mn");
         let sc = document.querySelector("#sc");
@@ -202,19 +222,6 @@
         var rotateSpeed = -60; // unit: seconds/360 degrees
         var imgWidth = 130; // width of images (unit: px)
         var imgHeight = 180; // height of images (unit: px)
-
-        // Link of background music - set 'null' if you dont want to play background music
-        var bgMusicURL =
-            "static/voice/my_stupid_heart.mp3";
-        var bgMusicControls = true; // Show UI music control
-
-        /*
-       NOTE:
-         + imgWidth, imgHeight will work for video
-         + if imgWidth, imgHeight too small, play/pause button in <video> will be hidden
-         + Music link are taken from: https://hoangtran0410.github.io/Visualyze-design-your-own-/?theme=HauMaster&playlist=1&song=1&background=28
-         + Custom from code in tiktok video  https://www.facebook.com/J2TEAM.ManhTuan/videos/1353367338135935/
-  */
 
         // ===================== start =======================
         setTimeout(init, 100);
@@ -277,17 +284,6 @@
                 rotateSpeed
             )}s infinite linear`;
         }
-
-        // add background music
-        if (bgMusicURL) {
-            document.getElementById("music-container").innerHTML += `
-<audio src="${bgMusicURL}" ${bgMusicControls ? "controls" : ""
-                } autoplay loop>    
-<p>If you are reading this, it is because your browser does not support the audio element.</p>
-</audio>
-`;
-        }
-
 
         // setup events
         document.onpointerdown = function (e) {
