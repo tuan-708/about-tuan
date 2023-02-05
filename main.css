@@ -793,6 +793,10 @@ body {
 
 
 @media only screen and (max-width: 600px) {
+  #audio{
+    display: none;
+  }
+
   #preloader {
     position: fixed;
     top: 50%;
