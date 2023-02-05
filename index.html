@@ -161,7 +161,7 @@
     </div>
 
 
-    <div id="boxIntro" class="container">
+    <div id="boxSelfIntro" class="container">
         <div class="card">
             <div class="lines">
             </div>
@@ -217,21 +217,21 @@
         var drag_container = document.getElementById("drag-container");
         var clock = document.getElementById("clock");
         var menu = document.getElementById("menu");
-        var boxIntro = document.getElementById("boxIntro");
-        
+        var boxIntro = document.getElementById("boxSelfIntro");
 
+        boxIntro.style.display = 'none';
         drag_container.style.display = 'none';
         clock.style.display = 'none';
         menu.style.display = 'none';
-        boxIntro.style.display = 'none';
+        
 
         function loadPage() {
+            setTimeout(() => { preloader.classList.add("preloader-finish"); }, 500);
+            
             drag_container.style.display = 'block';
             clock.style.display = 'block';
             menu.style.display = 'block';
             boxIntro.style.display = 'flex';
-            setTimeout(() => { preloader.classList.add("preloader-finish"); }, 500);
-
         }
 
         var vid = document.getElementById("audio");

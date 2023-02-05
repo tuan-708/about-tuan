@@ -259,9 +259,7 @@ body {
 /* Clock */
 .clock {
   position: absolute;
-  /* top: 5%;
-  left: 85%; */
-  top: 1%;
+  top: 3%;
   left: 45%;
   width: 150px;
   height: 150px;
@@ -286,7 +284,7 @@ body {
   height: 4px;
   background: #e91e63;
   border-radius: 50%;
-  z-index: 1;
+  z-index: 2;
   box-shadow: 0 0 0 1px #e91e63,
     0 0 0 3px #fff,
     0 0 5px 5px rgba(0, 0, 0, 0.15);
@@ -813,7 +811,7 @@ body {
     position: absolute;
     top: 5%;
     left: 5%;
-    display: flex !important;
+    display: flex;
     align-items: center;
     justify-content: center;
     z-index: 2;
