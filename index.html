@@ -10,11 +10,10 @@
         integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="icon" href="static/image/logo.jpg">
-    <!-- <script src="particle.js"></script>
-    <script src="firework.js"></script>
-    <script src="sketch.js"></script> -->
-    <!-- <script src="main.js"></script> -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/p5.min.js" integrity="sha512-WJXVjqeINVpi5XXJ2jn0BSCfp0y80IKrYh731gLRnkAS9TKc5KNt/OfLtu+fCueqdWniouJ1ubM+VI/hbo7POQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/p5.min.js"
+        integrity="sha512-WJXVjqeINVpi5XXJ2jn0BSCfp0y80IKrYh731gLRnkAS9TKc5KNt/OfLtu+fCueqdWniouJ1ubM+VI/hbo7POQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>About Tuấn</title>
 </head>
 
@@ -83,6 +82,10 @@
     <video id="audio" controls autoplay hidden>
         <source src="static/voice/audio.mp4" type="video/mp4" />
     </video>
+
+
+    <div id="fireWorks">
+    </div>
 
 
     <!-- <div class="menu">
@@ -223,16 +226,68 @@
         drag_container.style.display = 'none';
         clock.style.display = 'none';
         menu.style.display = 'none';
-        
+
 
         function loadPage() {
             setTimeout(() => { preloader.classList.add("preloader-finish"); }, 500);
-            
+
             drag_container.style.display = 'block';
             clock.style.display = 'block';
             menu.style.display = 'block';
             boxIntro.style.display = 'flex';
         }
+
+        const locationFireWorks = [{ x: '-600px', y: '0px' }, { x: '-519px', y: '-300px' }, { x: '-300px', y: '-519px' }, { x: '0px', y: '-600px' }, { x: '300px', y: '-519px' }, { x: '519px', y: '-300px' }, { x: '600px', y: '0px' }]
+        let count = 0;
+
+        // Ban phao hoa
+        function fireWorks() {
+            for (let j = 0; j < 7; j++) {
+                const btn = document.getElementById('fireWorks');
+                const particles = [];
+                const color = randomColor();
+
+                const particle = document.createElement('span');
+                particle.classList.add('particle', 'move');
+                const { x, y } = locationFireWorks[j];
+
+                particle.style.setProperty('--x', x);
+                particle.style.setProperty('--y', y);
+                particle.style.background = color;
+
+                btn.appendChild(particle);
+
+                particles.push(particle);
+
+                setTimeout(() => {
+
+                    for (let i = 0; i < 30; i++) { const innerP = document.createElement('span'); innerP.classList.add('particle', 'move'); innerP.style.transform = `translate(${x}, ${y})`; const xs = Math.random() * 200 - 100 + 'px'; const ys = Math.random() * 200 - 100 + 'px'; innerP.style.setProperty('--x', `calc(${x} + ${xs})`); innerP.style.setProperty('--y', `calc(${y} + ${ys})`); innerP.style.animationDuration = Math.random() * 300 + 200 + 'ms'; innerP.style.background = color; btn.appendChild(innerP); particles.push(innerP); } setTimeout(() => {
+                        particles.forEach(particle => {
+                            particle.remove();
+                        });
+                    }, 1000);
+                }, 1000);
+
+                function randomLocation() {
+                    return {
+                        x: Math.random() * window.innerWidth - window.innerWidth / 1.2 + 'px',
+                        y: Math.random() * window.innerHeight - window.innerHeight / 1.2 + 'px'
+                    };
+
+                }
+
+                function randomColor() {
+                    return `hsl(${Math.floor(Math.random() * 361)}, 100%, 50%)`;
+                }
+
+            }
+        }
+
+        document.addEventListener('keyup', (e) => {
+            if (e.code === "Space") {
+                fireWorks();
+            }
+        });
 
         var vid = document.getElementById("audio");
         function enableAutoplay() {
@@ -240,6 +295,7 @@
                 vid.autoplay = true;
                 vid.load();
             }
+            fireWorks();
         }
 
         // event clock
@@ -467,6 +523,7 @@
         }
 
         animate();
+
     </script>
 </body>
 
