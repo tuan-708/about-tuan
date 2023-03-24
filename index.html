@@ -4,7 +4,6 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,user-scalable=no" />
-    <link rel="stylesheet" type="text/css" href="style.css">
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
         integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
@@ -87,29 +86,11 @@
     <div id="fireWorks">
     </div>
 
-
-    <!-- <div class="menu">
-        <ul>
-            <li style="--i:6;--clr:rgb(22, 92, 241)"><a href=""><span><i
-                            class="fa-brands fa-facebook-f"></i></span>Facebook</a></li>
-            <li style="--i:5;--clr:rgb(241, 22, 88)"><a href=""><span><i
-                            class="fa-brands fa-instagram"></i></span>Instagram</a></li>
-            <li style="--i:4;--clr:rgb(59, 47, 47)"><a href=""><span><i
-                            class="fa-brands fa-tiktok"></i></span>Tiktok</a></li>
-            <li style="--i:3;--clr:rgb(35, 255, 255)"><a href=""><span><i class="fa-solid fa-phone"></i></span>Phone</a>
-            </li>
-            <li style="--i:2;--clr:rgb(215, 255, 35)"><a href=""><span><i
-                            class="fa-solid fa-envelope"></i></span>Gmail</a></li>
-            <li style="--i:1;--clr:rgb(255, 7, 7)"><a href=""><span><i
-                            class="fa-brands fa-linkedin-in"></i></span>Linkedin</a></li>
-            <ul>
-    </div> -->
-
     <!-- menu -->
-    <div id="menu" class="menu1">
+    <div id="menu" class="menu">
         <ul>
             <li style="--i:6;--clr:rgb(26,104,235,0.9);--textCl:white;">
-                <a href="https://www.facebook.com/tuanlbs78">
+                <a href="https://www.facebook.com/tuanlbs78" target="_blank">
                     <img class="logo" src="static/image/logoface.png">
                     <div id="speechbubble" class="overlay">
                         <div class="text">
@@ -120,7 +101,7 @@
                 </a>
             </li>
             <li style="--i:6;--clr:rgba(255, 29, 123, 0.9);--textCl:white;">
-                <a href="https://www.instagram.com/tuan.708/">
+                <a href="https://www.instagram.com/tuan.708/" target="_blank">
                     <img class="logo" src="static/image/logoinstagram.png">
                     <div class="overlay">
                         <div class="text">Instagram: tuan.708</div>
@@ -128,7 +109,7 @@
                 </a>
             </li>
             <li style="--i:6;--clr:rgb(59, 47, 47);--textCl:white;">
-                <a href="https://www.tiktok.com/@tuan.708">
+                <a href="https://www.tiktok.com/@tuan.708" target="_blank">
                     <img class="logo" src="static/image/logotiktok.png">
                     <div class="overlay">
 
@@ -145,7 +126,7 @@
                 </a>
             </li>
             <li style="--i:6;--clr:rgb(86,141,215);--textCl:white;">
-                <a href="https://www.linkedin.com/in/tuan-vuvan-b06541255/">
+                <a href="https://www.linkedin.com/in/tuan-vuvan-b06541255/" target="_blank">
                     <img class="logo" src="static/image/logolinkedin.png">
                     <div class="overlay">
                         <div class="text">Linkedin: tuan-vuvan-b06541255</div>
@@ -340,8 +321,14 @@
         var aEle = [...aImg, ...aVid]; // combine 2 arrays
 
         // Size of images
-        ospin.style.width = imgWidth + "px";
-        ospin.style.height = imgHeight + "px";
+        if(screen.width > 600){
+            ospin.style.width = imgWidth + "px";
+            ospin.style.height = imgHeight + "px";
+        }else{
+            ospin.style.width = "120px";
+            ospin.style.height = "160px";
+        }
+
 
         // Size of ground - depend on radius
         var ground = document.getElementById("ground");
@@ -447,7 +434,6 @@
         };
 
         const texts = [
-            "Hãy",
             "Follow",
             "Mình",
             "Nhé!",
